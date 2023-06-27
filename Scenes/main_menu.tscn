@@ -44,7 +44,7 @@ text = "Quit
 "
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(32, 32)
+position = Vector2(1120, 616)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ay3y2")
 
