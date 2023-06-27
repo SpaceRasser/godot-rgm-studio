@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cbvm7xwntu437" path="res://Assets/Striker/spr_StrikerRun_strip.png" id="3_on2mo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akq2g"]
+radius = 12.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_af20c"]
 atlas = ExtResource("1_685ii")
@@ -226,7 +227,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_fidg4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -236,7 +237,7 @@ shape = SubResource("CapsuleShape2D_akq2g")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_84kbe")
 animation = &"run"
-frame_progress = 0.226687
+frame_progress = 0.499746
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
