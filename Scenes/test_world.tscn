@@ -428,7 +428,7 @@ layer_0/tile_data = PackedInt32Array(262145, 65536, 1, 327681, 65536, 3, 393217,
 position = Vector2(136, 24)
 
 [node name="player" parent="player" instance=ExtResource("1_54023")]
-position = Vector2(184, 8)
+position = Vector2(-88, 16)
 
 [node name="top wall" type="StaticBody2D" parent="."]
 
@@ -480,4 +480,4 @@ offset_bottom = 656.0
 [node name="mobs" type="Node2D" parent="."]
 
 [node name="mushroom" parent="mobs" instance=ExtResource("3_rbe10")]
-position = Vector2(136, 24)
+position = Vector2(296, 32)

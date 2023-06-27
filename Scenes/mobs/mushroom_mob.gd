@@ -4,14 +4,12 @@ var SPEED = 50
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player
 var chase = false
-
-func _ready():
-	get_node("AnimatedSprite2D").play("Idle")
 	
 func _physics_process(delta):
 	#Gravity for Frog
 	velocity.y += gravity * delta
 	if chase == true:
+		get_node("AnimatedSprite2D").play("run")
 		player = get_node("../../player/player")
 		var direction = (player.position - self.position).normalized()
 		if direction.x > 0:
@@ -20,7 +18,7 @@ func _physics_process(delta):
 			get_node("AnimatedSprite2D").flip_h = false
 		velocity.x = direction.x * SPEED
 	else:
-		get_node("AnimatedSprite2D").play("Idle")
+		get_node("AnimatedSprite2D").play("idle")
 		velocity.x = 0
 	move_and_slide()
 	
