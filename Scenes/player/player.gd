@@ -3,12 +3,24 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const hp = 25
+var max_hp = 100
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var anim = get_node("AnimatedSprite2D")
 
+func _ready():
+	_set_start_hp(hp, max_hp)
+	pass
+
+func _set_start_hp(hp, max_hp):
+	$HP_Bar.value = hp
+	$HP_Bar.max_value = max_hp
+
+func update_hp():
+	$HP_Bar.value = hp
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -39,3 +51,5 @@ func _physics_process(delta):
 	if velocity.y > 0:
 		anim.play("fall")
 	move_and_slide()
+
+
