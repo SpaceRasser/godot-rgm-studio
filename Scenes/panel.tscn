@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c1cvcvhr67xpf"]
+
+[node name="Panel" type="Panel"]
+offset_left = 167.0
+offset_top = 66.0
+offset_right = 844.0
+offset_bottom = 474.0
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 138.0
+offset_right = 452.0
+offset_bottom = 191.0
+text = "ПИДАРАСЫ БЛЯТЬ"
