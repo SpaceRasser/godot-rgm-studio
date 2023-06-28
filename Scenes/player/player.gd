@@ -51,4 +51,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if velocity.y > 0:
 		anim.play("fall")
+	
+	if Input.is_action_just_pressed("fight"):
+		anim.play("fight")
+		
 	move_and_slide()
