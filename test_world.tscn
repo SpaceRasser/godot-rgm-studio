@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctecbmci27shs"]
+[gd_scene load_steps=9 format=3 uid="uid://ctecbmci27shs"]
 
 [ext_resource type="PackedScene" uid="uid://c0751lh1f27mu" path="res://Scenes/player/player.tscn" id="1_54023"]
 [ext_resource type="Texture2D" uid="uid://dwrnrs261dnhw" path="res://Assets/Sunny Land/sunny-land-phaser-project/sunny-land/assets/environment/tileset.png" id="1_fkkyd"]
-[ext_resource type="Texture2D" uid="uid://de2fq6kmxfa8" path="res://Assets/healthbarByAndel/healthbarpng.png" id="3_8pry2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y3w2i"]
 texture = ExtResource("1_fkkyd")
@@ -426,22 +425,6 @@ layer_0/tile_data = PackedInt32Array(262145, 65536, 1, 327681, 65536, 3, 393217,
 
 [node name="player" parent="." instance=ExtResource("1_54023")]
 position = Vector2(24, 16)
-
-[node name="HP_Bar" type="ProgressBar" parent="player"]
-modulate = Color(0.905882, 0.027451, 0.117647, 1)
-self_modulate = Color(1, 0.521569, 1, 1)
-offset_left = -336.0
-offset_top = -190.0
-offset_right = -185.0
-offset_bottom = -163.0
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="player"]
-offset_left = -380.0
-offset_top = -207.0
-offset_right = -269.0
-offset_bottom = -157.0
-nine_patch_stretch = true
-texture_over = ExtResource("3_8pry2")
 
 [node name="top wall" type="StaticBody2D" parent="."]
 
