@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c0751lh1f27mu"]
+[gd_scene load_steps=63 format=3 uid="uid://c0751lh1f27mu"]
 
 [ext_resource type="Texture2D" uid="uid://cjcsdc4ht45s6" path="res://Assets/Striker/spr_StrikerJump_strip.png" id="1_685ii"]
 [ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_fidg4"]
@@ -408,6 +408,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gguy"]
+size = Vector2(21, 14.5)
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_fidg4")
 
@@ -418,8 +421,8 @@ shape = SubResource("CapsuleShape2D_akq2g")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(7, 1)
 sprite_frames = SubResource("SpriteFrames_84kbe")
-animation = &"idle"
-frame_progress = 0.748052
+animation = &"fight"
+frame_progress = 0.287186
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
@@ -437,3 +440,9 @@ offset_top = -215.0
 offset_right = -341.0
 offset_bottom = -175.0
 texture_over = ExtResource("5_2hnnx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(27, 1.75)
+shape = SubResource("RectangleShape2D_0gguy")
