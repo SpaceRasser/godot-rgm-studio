@@ -4,7 +4,20 @@ var SPEED = 50
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player
 var chase = false
-	
+const hp = 20
+var max_hp = 100
+
+func _ready():
+	_set_start_hp(hp, max_hp)
+	pass
+
+func _set_start_hp(hp, max_hp):
+	$HP_Bar.value = hp
+	$HP_Bar.max_value = max_hp
+
+func update_hp():
+	$HP_Bar.value = hp
+
 func _physics_process(delta):
 	#Gravity for Frog
 	velocity.y += gravity * delta

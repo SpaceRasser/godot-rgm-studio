@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://c0751lh1f27mu"]
+[gd_scene load_steps=36 format=3 uid="uid://c0751lh1f27mu"]
 
 [ext_resource type="Texture2D" uid="uid://cjcsdc4ht45s6" path="res://Assets/Striker/spr_StrikerJump_strip.png" id="1_685ii"]
 [ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_fidg4"]
 [ext_resource type="Texture2D" uid="uid://dn7fdme51fuds" path="res://Assets/Striker/spr_StrikerIdle_strip.png" id="2_thtld"]
 [ext_resource type="Texture2D" uid="uid://cbvm7xwntu437" path="res://Assets/Striker/spr_StrikerRun_strip.png" id="3_on2mo"]
+[ext_resource type="Texture2D" uid="uid://xwudjvsdur7x" path="res://Assets/healthbarByAndel/healthbarpng.png" id="5_2hnnx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akq2g"]
 radius = 12.0
@@ -241,3 +242,17 @@ frame_progress = 0.499746
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
+
+[node name="HP_Bar" type="ProgressBar" parent="."]
+modulate = Color(0.85098, 0, 0.27451, 1)
+offset_left = -334.0
+offset_top = -199.0
+offset_right = -212.0
+offset_bottom = -172.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -381.0
+offset_top = -215.0
+offset_right = -341.0
+offset_bottom = -175.0
+texture_over = ExtResource("5_2hnnx")
