@@ -1,11 +1,44 @@
-[gd_scene load_steps=21 format=3 uid="uid://bc0oi1wtx2sgh"]
+[gd_scene load_steps=30 format=3 uid="uid://bc0oi1wtx2sgh"]
 
 [ext_resource type="Texture2D" uid="uid://boh7smtd20slq" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Idle.png" id="1_8ic5c"]
 [ext_resource type="Script" path="res://Scenes/mobs/mushroom_mob.gd" id="1_ndivm"]
+[ext_resource type="Texture2D" uid="uid://c8es84otjg6si" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Attack.png" id="2_cpea8"]
 [ext_resource type="Texture2D" uid="uid://c43k3iw8uwbrs" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Run.png" id="2_tju0a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpopf"]
 height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o3sf"]
+atlas = ExtResource("2_cpea8")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dwia"]
+atlas = ExtResource("2_cpea8")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0cqv"]
+atlas = ExtResource("2_cpea8")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewl2t"]
+atlas = ExtResource("2_cpea8")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wfgo"]
+atlas = ExtResource("2_cpea8")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4kcs"]
+atlas = ExtResource("2_cpea8")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrpp1"]
+atlas = ExtResource("2_cpea8")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mggai"]
+atlas = ExtResource("2_cpea8")
+region = Rect2(1050, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q5bpg"]
 atlas = ExtResource("1_8ic5c")
@@ -57,7 +90,31 @@ region = Rect2(1050, 0, 150, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4hdg8"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o3sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dwia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0cqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewl2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wfgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4kcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrpp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mggai")
+}],
 "loop": true,
 "name": &"attack",
 "speed": 5.0
@@ -127,7 +184,7 @@ radius = 13.0
 height = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_trqtq"]
-radius = 28.0
+radius = 33.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_ndivm")
@@ -138,7 +195,9 @@ shape = SubResource("CapsuleShape2D_kpopf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4hdg8")
-animation = &"run"
+animation = &"attack"
+frame = 5
+frame_progress = 0.315732
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 

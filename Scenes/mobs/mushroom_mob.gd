@@ -53,7 +53,8 @@ func _on_player_detection_body_exited(body):
 		chase = false
 
 func bite(targ):
-	targ.reduce_hp(bite_strength)
+	get_node("AnimatedSprite2D").play("attack")
+	#targ.reduce_hp(bite_strength)
 	can_bite = false
 	$BiteColdown.start(1)
 
