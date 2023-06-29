@@ -7,6 +7,10 @@ var chase = false
 const hp = 20
 var max_hp = 100
 
+var target_intercepted = false
+var can_bite = true
+var bite_strength = 10
+
 func _ready():
 	_set_start_hp(hp, max_hp)
 	pass
@@ -33,6 +37,10 @@ func _physics_process(delta):
 	else:
 		get_node("AnimatedSprite2D").play("idle")
 		velocity.x = 0
+	
+	if target_intercepted and can_bite:
+		bite(player)
+	
 	move_and_slide()
 	
 func _on_player_detection_body_entered(body):
@@ -43,3 +51,24 @@ func _on_player_detection_body_entered(body):
 func _on_player_detection_body_exited(body):
 	if body.name == "player":
 		chase = false
+
+func bite(targ):
+	targ.reduce_hp(bite_strength)
+	can_bite = false
+	$BiteColdown.start(1)
+
+func _on_bite_coldown_timeout():
+	can_bite = true
+	pass # Replace with function body.
+
+
+func _on_bite_area_area_entered(area):
+	if area.get_parent() == player:
+		target_intercepted= true
+	pass # Replace with function body.
+
+
+func _on_bite_area_area_exited(area):
+	if area.get_parent() == player:
+		target_intercepted = false
+	pass # Replace with function body.

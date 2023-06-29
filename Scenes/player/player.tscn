@@ -419,10 +419,9 @@ position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_akq2g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(7, 1)
+position = Vector2(-3, 0)
 sprite_frames = SubResource("SpriteFrames_84kbe")
-animation = &"fight"
-frame_progress = 0.287186
+animation = &"run"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)

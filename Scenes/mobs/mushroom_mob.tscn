@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bc0oi1wtx2sgh"]
+[gd_scene load_steps=21 format=3 uid="uid://bc0oi1wtx2sgh"]
 
 [ext_resource type="Texture2D" uid="uid://boh7smtd20slq" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Idle.png" id="1_8ic5c"]
 [ext_resource type="Script" path="res://Scenes/mobs/mushroom_mob.gd" id="1_ndivm"]
@@ -122,6 +122,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6ujv"]
 radius = 125.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gkj8g"]
+radius = 13.0
+height = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trqtq"]
+radius = 28.0
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_ndivm")
 
@@ -139,10 +146,27 @@ animation = &"run"
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_g6ujv")
 
+[node name="BiteColdown" type="Timer" parent="."]
+
 [node name="HP_Bar" type="ProgressBar" parent="."]
 offset_right = 4.0
 offset_bottom = 27.0
 show_percentage = false
 
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_gkj8g")
+
+[node name="BiteArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BiteArea"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_trqtq")
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="timeout" from="BiteColdown" to="." method="_on_bite_coldown_timeout"]
+[connection signal="area_entered" from="BiteArea" to="." method="_on_bite_area_area_entered"]
+[connection signal="area_exited" from="BiteArea" to="." method="_on_bite_area_area_exited"]

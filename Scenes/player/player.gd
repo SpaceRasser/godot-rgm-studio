@@ -56,3 +56,7 @@ func _physics_process(delta):
 		anim.play("fight")
 		
 	move_and_slide()
+
+func rduce_hp(val):
+	self.hp -= val
+	update_hp()
