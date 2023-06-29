@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b4rk7xag30a6j"]
+[gd_scene load_steps=37 format=3 uid="uid://b4rk7xag30a6j"]
 
 [ext_resource type="Texture2D" uid="uid://boh7smtd20slq" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Idle.png" id="1_nmhti"]
 [ext_resource type="Script" path="res://Scenes/mobs/mushrom.gd" id="1_ytck0"]
@@ -7,9 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c43k3iw8uwbrs" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Run.png" id="5_l014j"]
 [ext_resource type="Texture2D" uid="uid://c2t1upogqkki6" path="res://Assets/Monsters_Creatures_Fantasy/Mushroom/Take Hit.png" id="6_jfwua"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hyk3x"]
-radius = 13.0
-height = 38.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp5o1"]
+size = Vector2(14, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b6vco"]
 atlas = ExtResource("2_tcwv6")
@@ -235,23 +234,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t1fki"]
-radius = 56.0
-
 [node name="Mushroom" type="CharacterBody2D"]
 script = ExtResource("1_ytck0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_hyk3x")
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_dp5o1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_704cs")
 animation = &"Idle"
-
-[node name="PlayerDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-shape = SubResource("CircleShape2D_t1fki")
-
-[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

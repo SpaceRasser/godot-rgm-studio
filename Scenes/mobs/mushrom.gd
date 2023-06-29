@@ -1,16 +1,27 @@
 extends CharacterBody2D
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var player
+var stands = true
+var destrination = Vector2()
+#var velocity = Vector2()
 
-func _physics_process(delta):
-	velocity.y += gravity * delta
-	move_and_slide()
-func _on_player_detector_body_entered(body):
-	if body.name == "player":
-		player = get_node("../../player/player")
-		var direction = (player.position - self.position).normalized()
-		if direction.x > 0:
-			print("Right")
-		else:
-			print("Left")
+
+func wander():
+	var pos = position
+	if stands:
+		randomize()
+		
+		var x = int(randf_range(pos.x - 10, pos.x + 10))
+		
+		
+	
+	
+	
+	
+#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+#func _physics_process(delta):
+#	velocity.y += gravity * delta
+#	move_and_slide()
+
+
+
