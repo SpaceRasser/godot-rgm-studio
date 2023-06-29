@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 var SPEED = 50
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player
@@ -54,7 +55,7 @@ func _on_player_detection_body_exited(body):
 
 func bite(targ):
 	get_node("AnimatedSprite2D").play("attack")
-	#targ.reduce_hp(bite_strength)
+	targ.reduce_hp(bite_strength)
 	can_bite = false
 	$BiteColdown.start(1)
 
